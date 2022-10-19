@@ -1,0 +1,26 @@
+{
+  "name": "com.pixygon.addressables",
+  "version": "0.5.0",
+  "displayName": "Pixygon Addressables",
+  "description": "Manager for handling addressable content",
+  "unity": "2022.1",
+  "unityRelease": "20f1",
+  "documentationUrl": "https://www.pixygon.io/dev/addressables",
+  "changelogUrl": "https://www.pixygon.io/dev/addressables/changelog",
+  "licensesUrl": "https://www.pixygon.io/dev/addressables/license",
+  "dependencies": {
+    "com.unity.addressables": "1.20.5",
+    "com.pixygon.debugtool": "0.5.0"
+ },
+"hideInEditor": false,
+ "keywords": [
+    "Pixygon",
+    "Addressables",
+    "Tool"
+  ],
+  "author": {
+    "name": "Pixygon",
+    "email": "pixygon@pixygon.io",
+    "url": "https://www.pixygon.io"
+  }
+}
