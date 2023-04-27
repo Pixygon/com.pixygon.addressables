@@ -9,7 +9,7 @@ using Pixygon.DebugTool;
 
 namespace Pixygon.Addressable {
     public class AddressableLoader : MonoBehaviour {
-        public static async Task<GameObject> LoadGameObject(AssetReference reference, Transform parent = null, bool addSelfCleanup = true) {
+        public static async Task<GameObject> LoadGameObject(AssetReference reference, Transform parent = null, bool addSelfCleanup = true, Action<float> percentage = null) {
             GameObject go = null;
             if(reference == null) {
                 Log.DebugMessage(DebugGroup.Addressable, "AssetReference is null!");
@@ -18,6 +18,7 @@ namespace Pixygon.Addressable {
             try {
                 var obj = Addressables.InstantiateAsync(reference);
                 Log.DebugMessage(DebugGroup.Addressable, "Loading asset: " + reference + " valid: "+ obj.IsValid());
+                percentage?.Invoke(obj.PercentComplete);
                 obj.Completed += obj => {
                     switch (obj.Status) {
                         case AsyncOperationStatus.Succeeded: {
