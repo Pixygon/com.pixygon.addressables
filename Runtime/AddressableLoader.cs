@@ -49,9 +49,11 @@ namespace Pixygon.Addressable {
                 return null;
             }
         }
-        public static async Task<T> LoadAsset<T>(AssetReference reference) where T : Object {
+        public static async Task<T> LoadAsset<T>(AssetReference reference, Action<float> percentage = null) where T : Object {
             T o = null;
-            Addressables.LoadAssetAsync<T>(reference).Completed += obj => { o = obj.Result; };
+            var obj = Addressables.LoadAssetAsync<T>(reference);
+            percentage?.Invoke(obj.PercentComplete);
+            obj.Completed += obj => { o = obj.Result; };
             while (o == null) await Task.Yield();
             return o;
         }
