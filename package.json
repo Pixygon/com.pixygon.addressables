@@ -1,10 +1,10 @@
 {
   "name": "com.pixygon.addressables",
   "version": "0.5.0",
-  "displayName": "Pixygon Addressables",
+  "displayName": "Pixygon - Addressables",
   "description": "Manager for handling addressable content",
-  "unity": "2022.1",
-  "unityRelease": "20f1",
+  "unity": "2023.1",
+  "unityRelease": "13f1",
   "documentationUrl": "https://www.pixygon.io/dev/addressables",
   "changelogUrl": "https://www.pixygon.io/dev/addressables/changelog",
   "licensesUrl": "https://www.pixygon.io/dev/addressables/license",

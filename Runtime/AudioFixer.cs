@@ -13,6 +13,12 @@ namespace Pixygon.Addressable {
             };
         }
 
+        #if UNITY_EDITOR
+        private void Reset() {
+            _source = GetComponent<AudioSource>();
+        }
+        #endif
+        
         public enum MixerGroups {
             SFX,
             BGM
