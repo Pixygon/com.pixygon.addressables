@@ -4,6 +4,9 @@ using UnityEngine.Audio;
 namespace Pixygon.Addressable {
     public class AudioMaster : MonoBehaviour {
         [SerializeField] private AudioMixer _mixer;
+        [SerializeField] private AudioListener _listener;
+        
+        private GameObject _currentListener;
 
         public static AudioMaster Instance;
         
@@ -16,6 +19,15 @@ namespace Pixygon.Addressable {
             else Instance = this;
             DontDestroyOnLoad(gameObject);
             SetMixer();
+        }
+        public void SetAudioListener(GameObject g) {
+            _currentListener = g;
+            _currentListener.AddComponent<AudioListener>();
+            _listener.enabled = false;
+        }
+        public void ReleaseAudioListener() {
+            _currentListener = null;
+            _listener.enabled = true;
         }
 
         public void SetMixer() {
